@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         int a = 0;
         int res = 0;
-        while (a != 42) {
-            a = scanner.nextInt();
-
-            if (isPrime(sumOfDigits(a))) res++;
+        try (Scanner scanner = new Scanner(System.in)) {
+            while (a != 42) {
+                a = scanner.nextInt();
+                if (isPrime(sumOfDigits(a))) res++;
+            }
+            System.out.println("Count of coffee-request - " + res);
         }
-        System.out.println("Count of coffee-request - " + res);
     }
 
     private static int sumOfDigits(int num) {
